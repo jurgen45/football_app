@@ -1,0 +1,22 @@
+</DOCTYPE html>
+<html>
+	<head>
+		<title>Championnats</title>
+		<meta charset="UTF-8" />
+		<script src="https://cdn.jsdelivr.net/gh/riot/riot/riot%2Bcompiler.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/riot/route/dist/route.min.js"></script>
+		<script src="include/serviceAjax.js"></script>
+
+		<script src="include/constantes.js"></script>
+		<script src="include/riot+compiler.min.js"></script>
+		<script src="tags/App.tag" type="riot/tag"></script>
+
+	</head>
+	<body>
+		<App></App>
+		<script>
+		    riot.mixin("serviceAjax",makeServiceAjax());
+		    riot.mount("App");
+		</script>
+	</body>
+</html>
