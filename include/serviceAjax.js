@@ -23,8 +23,8 @@ function makeServiceAjax(){
 		});
 	}
 
-	function getListCompet(type){
-		switch(type){
+	function getInfoTeam(compet){
+		switch(compet){
 			case 'popular' : 
 				url = urlBase+"/movie/popular?api_key="+apikey+"&language=fr-FR&page=";
 				break;

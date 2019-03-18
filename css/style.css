@@ -1,9 +1,23 @@
 body{
 	margin: 0%;
+	background-color: #c1c1c1c1;
 }
 .titre{
 	text-align: center;
 	color: #15a800;
-	margin: 0%;
+	margin-top: 1%;
 	height: 10%;
+	color: #E7010E;
+}
+
+.bouton_categorie{
+	text-align: center;
+	margin-top: 2%;
+}
+
+.bouton_visu{
+	padding: 0.5%;
+	margin: 0.2%;
+	background-color: #003287;
+	color: #ffffff;
 }
