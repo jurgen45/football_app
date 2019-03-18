@@ -1,12 +1,13 @@
 function makeServiceAjax(){
 	var apikey="4867ca38ca064e0a94e620f2b1947f77";
 	var urlBase = "https://api.football-data.org/v2";
+	var plan="TIER_ONE";
 	var service = {
 		getChampionnats:getChampionnats
 	};
 
 	function getChampionnats(){
-		var url = urlBase+"/competitions";
+		var url = urlBase+"/competitions/?plan="+plan;
 		return new Promise(function(resolve,reject){
 			http = new XMLHttpRequest();
 			http.open("GET",url);
