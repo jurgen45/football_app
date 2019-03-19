@@ -1,8 +1,9 @@
 function makeServiceAjax(){
-	var apikey="4867ca38ca064e0a94e620f2b1947f77";
+	var apikey="caa6ca42769041fa9badc7f56eea6835";
 	var urlBase = "https://api.football-data.org/v2";
 	var plan="TIER_ONE";
 	var service = {
+		getTeamPourCompet:getTeamPourCompet,
 		getChampionnats:getChampionnats
 	};
 
@@ -16,6 +17,22 @@ function makeServiceAjax(){
 			http.send();
 			http.onload=function(){
 				resolve(this.response);
+			};
+			http.onerror=function(){
+				reject("Erreur");
+			};
+		});
+	}
+
+	function getTeamPourCompet(){
+		url=urlBase+"/matches";
+		return new Promise(function(resolve,reject){
+			var http = new XMLHttpRequest();
+			http.open("GET",url);
+			http.responseType="json";
+			http.send();
+			http.onload=function(){
+				resolve(http.response);
 			};
 			http.onerror=function(){
 				reject("Erreur");
@@ -39,7 +56,7 @@ function makeServiceAjax(){
 				break;
 
 			default:
-				url = urlBase+"/BL1";
+				url = urlBase+"/Série A";
 		}
 		return new Promise(function(resolve,reject){
 			var http = new XMLHttpRequest();

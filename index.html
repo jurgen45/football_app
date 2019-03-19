@@ -8,13 +8,14 @@
 		<script src="include/serviceAjax.js"></script>
 		<link rel="stylesheet" href="css/style.css">
 
-		<script src="include/constantes.js"></script>
 		<script src="include/riot+compiler.min.js"></script>
 		<script src="tags/App.tag" type="riot/tag"></script>
+		<script src="tags/Information.tag" type="riot/tag"></script>
 
 	</head>
 	<body>
 		<App></App>
+		<Information></Information>
 		<script>
 		    riot.mixin("serviceAjax", makeServiceAjax());
 		    riot.mount("*");
