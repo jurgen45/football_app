@@ -9,20 +9,15 @@
 	<div class="liste_choix">
 		<h2>{nomChampionnat}</h2>
 		<ul>
-			<li class="liste">
-				Classement
-			</li>
-			<li class="liste">
-				Résultat
-			</li>
-			<li class="liste">
-				Buteurs
-			</li>
+			<li class="liste">Classement</li>
+			<li class="liste">Résultat</li>
+			<li class="liste">Buteurs</li>
 		</ul>
-		<p each="{ team }">{ name }</p>
+		<p each="{ team }">{ type }</p>
 	</div>
-	<script type="text/javascript">
+	<Classement name="clt"></Classement>
 
+	<script type="text/javascript">
 		this.mixin('serviceAjax');
 		this.loading = false;  // booléen qui controle le spinner
 		this.categorie=[];
@@ -42,27 +37,27 @@
 				});
 		}
 		this.getCompet();
+
 		this.setData = function(evenement){
 			evenement.preventDefault();
 			t.id = evenement.target.id;
 			t.nomChampionnat = evenement.target.name;
-			console.log(t.nomChampionnat);
-			t.getEquipe();
+			this.setInformation(evenement.target.id,evenement.target.name);
 			t.update();
 		}
 
-		this.getEquipe = function(evenement){
+		
+		/*this.getEquipe = function(){
 			this.loading=true;
-			//this.id = evenement.target.id;
 			var that=this;
-			this.getTeam(that.id)
+			this.getTeam()
 				.then(function(data){
-					that.team=data.standings[0];
+					t.team=data.standings[0];
 					console.log(that.team);
-					that.loading=false;
-					that.update();
+					t.loading=false;
+					t.update();
 
 				});
-		}
+		}*/
 	</script>
 </app>

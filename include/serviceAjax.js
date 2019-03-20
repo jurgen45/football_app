@@ -2,7 +2,11 @@ function makeServiceAjax(){
 	var apikey="caa6ca42769041fa9badc7f56eea6835";
 	var urlBase = "https://api.football-data.org/v2";
 	var plan="TIER_ONE";
+	var nom="";
+	var id=0;
+
 	var service = {
+		setInformation:setInformation,
 		getTeam:getTeam,
 		getChampionnats:getChampionnats
 	};
@@ -24,8 +28,14 @@ function makeServiceAjax(){
 		});
 	}
 
-	function getTeam(id){
-		url=urlBase+"/competitions/"+id+"/standings";
+	function setInformation(id, nom){
+		this.id=id;
+		this.nom = nom;
+		console.log(this.id);
+	}
+
+	function getTeam(){
+		url=urlBase+"/competitions/"+this.id+"/standings";
 		return new Promise(function(resolve,reject){
 			var http = new XMLHttpRequest();
 			http.open("GET",url);
