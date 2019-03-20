@@ -25,7 +25,7 @@ function makeServiceAjax(){
 	}
 
 	function getTeam(id){
-		url=urlBase+"/competitions/"+id+"/teams";
+		url=urlBase+"/competitions/"+id+"/standings";
 		return new Promise(function(resolve,reject){
 			var http = new XMLHttpRequest();
 			http.open("GET",url);

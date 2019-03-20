@@ -4,17 +4,18 @@
 	<h1 class="titre">Championnat</h1>
 	
 	<div class="bouton_categorie"> 
-		<button each="{ categorie }" class="bouton_visu" onclick="{ setId }" id="{ id }" >{ name }</button>
+		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name="{ name }">{ name }</button>
 	</div>
-	<div>
+	<div class="liste_choix">
+		<h2>{nomChampionnat}</h2>
 		<ul>
-			<li onclick="{ update }">
+			<li class="liste">
 				Classement
 			</li>
-			<li>
+			<li class="liste">
 				Résultat
 			</li>
-			<li>
+			<li class="liste">
 				Buteurs
 			</li>
 		</ul>
@@ -27,41 +28,40 @@
 		this.categorie=[];
 		this.team=[];
 		this.id=0;
-		var t= this;
+		this.nomChampionnat="";
+		t=this;
 
 		this.getCompet = function(){
 			this.loading=true;
-			this.update();
 			var that=this;
 			this.getChampionnats()
 				.then(function(data){
 					that.categorie=data.competitions;
-					console.log(that.categorie);
 					that.loading=false;
 					that.update();
 				});
 		}
 		this.getCompet();
-
-		this.setId = function(evenement){
-			this.id = evenement.target.id;
-			console.log("id vaut: "+this.id);
-			this.update();
-			this.getEquipe();
+		this.setData = function(evenement){
+			evenement.preventDefault();
+			t.id = evenement.target.id;
+			t.nomChampionnat = evenement.target.name;
+			console.log(t.nomChampionnat);
+			t.getEquipe();
+			t.update();
 		}
 
-		this.getEquipe = function(){
+		this.getEquipe = function(evenement){
 			this.loading=true;
-			this.update();
+			//this.id = evenement.target.id;
 			var that=this;
-			console.log("id dans fonction: "+this.id);
-			this.getTeam(this.id)
+			this.getTeam(that.id)
 				.then(function(data){
-					console.log(that.id);
-					that.team=data.teams;
-					console.log(data.teams);
+					that.team=data.standings[0];
+					console.log(that.team);
 					that.loading=false;
 					that.update();
+
 				});
 		}
 	</script>
