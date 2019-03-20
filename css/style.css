@@ -1,6 +1,7 @@
 body{
 	margin: 0%;
 	background-color: #c1c1c1c1;
+	font-family: adam;
 }
 .titre{
 	text-align: center;
@@ -13,6 +14,7 @@ body{
 .bouton_categorie{
 	text-align: center;
 	margin-top: 2%;
+
 }
 
 .bouton_visu{
@@ -21,6 +23,8 @@ body{
 	margin-bottom: 1%;
 	background-color: #003287;
 	color: #ffffff;
+	font-family: adam;
+	font-size: 100%;
 }
 .liste_choix{
 	text-align: center;
@@ -29,4 +33,26 @@ body{
 .liste{
 	display: inline-block;
 	margin: 1.5%;
+	font-size: 150%;
+}
+.tableau{
+	text-align: left;
+	align-content: center;
+	width: 50%;
+	margin: auto;
+	border-collapse: separate;
+    border-spacing: 20px;
+}
+.tableau img{
+	width: 10%;
+}
+th{
+	text-align: center;
+}
+tr{
+	font-size: 120%;
+}
+@font-face {
+  font-family: adam;
+  src: url(ressource/GeosansLight.ttf);
 }

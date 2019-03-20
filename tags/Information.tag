@@ -1,7 +1,5 @@
 <information>
-	<spinner loading="{ loading }"></spinner>
-	
-	
+	<spinner loading="{ loading }"></spinner>	
 
 	<script type="text/javascript">
 
