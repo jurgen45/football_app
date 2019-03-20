@@ -55,7 +55,6 @@
 		this.affichageSwitch = function(evenement){
 			evenement.preventDefault();
 			t.name=evenement.target.id;
-			console.log(evenement.target.id);
 			switch(this.name){
 				case 'classement' :
 					this.classementTag=true;

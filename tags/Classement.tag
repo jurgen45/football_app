@@ -33,7 +33,6 @@
 			this.getTeam(that.id)
 				.then(function(data){
 					that.team=data.standings[0].table;
-					console.log(that.team);
 					that.loading=false;
 					that.update();
 				});
