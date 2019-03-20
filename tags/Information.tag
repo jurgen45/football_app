@@ -1,15 +1,7 @@
 <information>
-	<ul>
-		<li>
-			Classement
-		</li>
-		<li>
-			Résultat
-		</li>
-		<li>
-			Buteurs
-		</li>
-	</ul>
+	<spinner loading="{ loading }"></spinner>
+	
+	
 
 	<script type="text/javascript">
 
@@ -24,7 +16,7 @@
 			var that=this;
 			this.getTeamPourCompet()
 				.then(function(data){
-					that.team=data.competitions;
+					that.team=data.teams;
 					console.log(that.team);
 					that.loading=false;
 					that.update();
