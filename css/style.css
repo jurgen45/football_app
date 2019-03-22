@@ -6,8 +6,8 @@ body{
 
 .spinner{
 	margin: auto;
-	border: 5px solid #f3f3f3; /* Light grey */
-  	border-top: 5px solid #3498db; /* Blue */
+	border: 5px solid #f3f3f3;
+  	border-top: 5px solid #3498db;
   	border-radius: 50%;
   	width: 50px;
   	height: 50px;
@@ -71,11 +71,11 @@ body{
 	margin: 1.5%;
 	font-size: 150%;
 	border-bottom: 2px solid #000000;
+	color: #4286f4;
 }
 
 .tableau{
 	text-align: left;
-	align-content: center;
 	width: 50%;
 	margin: auto;
 	border-collapse: separate;
@@ -84,6 +84,18 @@ body{
 
 .tableau img{
 	width: 10%;
+}
+
+.tableauRes{
+	text-align: left;
+	margin: auto;
+	width: 90%;
+
+}
+
+.tableauRes td{
+	min-width: 10%;
+	
 }
 
 th{
@@ -97,6 +109,24 @@ tr{
 h3{
 	margin-left: 25%;
 }
+
+h4{
+	text-align: center;
+	color: #4286f4;
+}
+
+.gras{
+	font-weight: bold;
+}
+
+.choice{
+	display: block;
+	margin: auto;
+	text-align: center;
+	width: 5%;
+
+}
+
 @font-face {
   font-family: geo;
   src: url(ressource/GeosansLight.ttf);

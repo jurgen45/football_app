@@ -3,7 +3,7 @@
 	<h1 class="titre">Championnat</h1>
 	<spinner loading="{ loading }"></spinner>
 	<div class="bouton_categorie"> 
-		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name={ name+": "+area.name }>{ name }</button>
+		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name="{ name+': '+area.name }">{ name }</button>
 	</div>
 	<div class="liste_choix">
 		<h2>{nomChampionnat}</h2>
@@ -19,7 +19,7 @@
 
 	<script type="text/javascript">
 		this.mixin('serviceAjax');
-		this.loading = false;  // booléen qui controle le spinner
+		this.loading = false;
 		this.categorie=[];
 		this.id=0;
 		this.name="";
@@ -34,6 +34,7 @@
 			this.getChampionnats()
 				.then(function(data){
 					t.categorie=data.competitions;
+					console.log(t.categorie);
 					t.loading=false;
 					t.update();
 				});
@@ -55,27 +56,33 @@
 			evenement.preventDefault();
 			t.name=evenement.target.id;
 			var c=document.getElementById("classement");
+			var r=document.getElementById("resultat");
+			var b=document.getElementById("buteur");
 			switch(this.name){
 				case 'classement' :
 					this.classementTag=true;
 					this.resultatTag=false;
 					this.buteursTag=false;
 					c.setAttribute("class", "liste_underline");
+					r.setAttribute("class", "liste");
+					b.setAttribute("class", "liste");
 					break;
 				case 'resultat' :
 					this.classementTag=false;
 					this.resultatTag=true;
 					this.buteursTag=false;
+					c.setAttribute("class", "liste");
+					r.setAttribute("class", "liste_underline");
+					b.setAttribute("class", "liste");
 					break;
 				case 'buteur' :
 					this.classementTag=false;
 					this.resultatTag=false;
 					this.buteursTag=true;
+					c.setAttribute("class", "liste");
+					r.setAttribute("class", "liste");
+					b.setAttribute("class", "liste_underline");
 					break;
-				default:
-					this.classementTag=true;
-					this.resultatTag=false;
-					this.buteursTag=false;
 			}
 		}
 	</script>
