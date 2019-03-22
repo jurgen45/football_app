@@ -23,7 +23,7 @@
 			</tr>
 		</table>
 
-		<table each="{ res in mtc }" if="{ res.matchday == currentMatchday && res.awayTeam.name == currentEquip && display || res.matchday == currentMatchday && res.homeTeam.name == currentEquip && display}" class="tableauRes">
+		<table each="{ res in mtc }" if="{ res.matchday == currentMatchday && res.awayTeam.name == currentEquip && display || res.matchday == currentMatchday && res.homeTeam.name == currentEquip && display || res.awayTeam.name == currentEquip && display}" class="tableauRes">
 			<tr>
 				<td>{res.group}</td>
 				<td>{res.homeTeam.name}</td>
