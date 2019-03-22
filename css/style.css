@@ -95,11 +95,10 @@ body{
 
 .tableauRes td{
 	min-width: 10%;
-	
 }
 
 th{
-	text-align: center;
+	text-align: left;
 }
 
 tr{

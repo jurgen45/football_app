@@ -55,7 +55,6 @@
 			this.getMatchs(t.id)
 				.then(function(data){
 					t.mtc=data.matches;
-					console.log(t.mtc);
 					t.nbJ=t.mtc[t.mtc.length-1].matchday;
 					for (var i = 1; i <= t.nbJ; i++) {
 						t.nbJours[i]=i;
@@ -92,7 +91,6 @@
 
 		this.setEquipe = function(evenement){
 			t.currentEquip=evenement.target.id;
-			console.log(evenement.target.id);
 			if (t.currentEquip != "aucun") { //selectionner aucun pour avoir uniquement l'affichage par jour sans prendre en compte les equipes
 				t.display = true;
 			}

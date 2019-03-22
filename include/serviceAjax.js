@@ -7,7 +7,7 @@ function makeServiceAjax(){
 	//var that=this;
 
 	var service = {
-		setInformation:setInformation,
+		getButeurs:getButeurs,
 		getClassement:getClassement,
 		getMatchs:getMatchs,
 		getChampionnats:getChampionnats
@@ -30,12 +30,6 @@ function makeServiceAjax(){
 		});
 	}
 
-	function setInformation(id, nom){
-		//this.id=id;
-		//this.nom = nom;
-		//console.log("id="+this.id);
-	}
-
 	function getClassement(id){
 		url=urlBase+"/competitions/"+id+"/standings";
 		return new Promise(function(resolve,reject){
@@ -55,6 +49,23 @@ function makeServiceAjax(){
 
 	function getMatchs(id){
 		url=urlBase+"/competitions/"+id+"/matches";
+		return new Promise(function(resolve,reject){
+			var http = new XMLHttpRequest();
+			http.open("GET",url);
+			http.setRequestHeader("X-Auth-Token", apikey);
+			http.responseType="json";
+			http.send();
+			http.onload=function(){
+				resolve(this.response);
+			};
+			http.onerror=function(){
+				reject("Erreur");
+			};
+		});
+	}
+
+	function getButeurs(id){
+		url=urlBase+"/competitions/"+id+"/scorers";
 		return new Promise(function(resolve,reject){
 			var http = new XMLHttpRequest();
 			http.open("GET",url);
