@@ -1,5 +1,6 @@
 <classement>
 	<spinner loading="{ loading }"></spinner>
+	<h3>{"Classement journée "+current.currentMatchday}</h3>
 	<table class="tableau">
 		<tr>
 			<th>Rang</th>
@@ -10,7 +11,7 @@
 			<th>Enemie</th>
 			<th>difference</th>
 		</tr>
-		<tr each="{ team }" class="tableau_equipe">
+		<tr each="{ team.table }" class="tableau_equipe">
 			<td>{ position }</td>
 			<td><img src="{ team.crestUrl }">{ team.name }</td>
 			<td>{ points }</td>
@@ -26,13 +27,16 @@
 		this.mixin('serviceAjax');
 		this.team=[];
 		this.id=opts.id;
+		this.current=[];
 		var that=this;
 
 		this.getEquipe = function(){
 			this.loading=true;
 			this.getTeam(that.id)
 				.then(function(data){
-					that.team=data.standings[0].table;
+					that.team=data.standings[0];
+					that.current=data.season;
+					//that.current=that.team.season.currentMatchday;
 					that.loading=false;
 					that.update();
 				});

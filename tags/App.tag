@@ -3,10 +3,10 @@
 	<h1 class="titre">Championnat</h1>
 	<spinner loading="{ loading }"></spinner>
 	<div class="bouton_categorie"> 
-		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name="{ name }" >{ name }</button>
+		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name={ name+": "+area.name }>{ name }</button>
 	</div>
 	<div class="liste_choix">
-		<h2>{nomChampionnat+" "+nomArea}</h2>
+		<h2>{nomChampionnat}</h2>
 		<ul>
 			<li class="liste" onclick="{ affichageSwitch }" id="classement">Classement</li>
 			<li class="liste" onclick="{ affichageSwitch }" id="resultat">Résultat</li>
@@ -24,7 +24,6 @@
 		this.id=0;
 		this.name="";
 		this.nomChampionnat="";
-		this.nomArea="";
 		this.classementTag=false;
 		this.resultatTag=false;
 		this.buteursTag=false;
@@ -45,6 +44,7 @@
 			evenement.preventDefault();
 			t.id = evenement.target.id;
 			t.nomChampionnat = evenement.target.name;
+			t.nomArea = evenement.target.zone;
 			t.classementTag=false;
 			t.resultatTag=false;
 			t.buteursTag=false;
@@ -54,11 +54,13 @@
 		this.affichageSwitch = function(evenement){
 			evenement.preventDefault();
 			t.name=evenement.target.id;
+			var c=document.getElementById("classement");
 			switch(this.name){
 				case 'classement' :
 					this.classementTag=true;
 					this.resultatTag=false;
 					this.buteursTag=false;
+					c.setAttribute("class", "liste_underline");
 					break;
 				case 'resultat' :
 					this.classementTag=false;
