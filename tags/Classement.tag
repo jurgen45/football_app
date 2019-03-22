@@ -1,7 +1,7 @@
 <classement>
 	<spinner loading="{ loading }"></spinner>
 	<h3>{"Classement journée "+current.currentMatchday}</h3>
-	<div  each="{ s in standingsTab }" if = "{s.type === 'TOTAL'}">
+	<div  each="{ s in standingsTab }" if = "{s.type == 'TOTAL'}">
 		<h4>{ s.group }</h4>
 		<table class="tableau">
 			<tr>
