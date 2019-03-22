@@ -127,6 +127,12 @@ h4{
 
 }
 
+.choice_equipe{
+	display: block;
+	margin: auto;
+	text-align: center;
+	width: 20%;
+}
 @font-face {
   font-family: geo;
   src: url(ressource/GeosansLight.ttf);

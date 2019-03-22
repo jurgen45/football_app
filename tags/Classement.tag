@@ -15,7 +15,7 @@
 			</tr>
 			<tr each = "{ elem in s.table }" class="tableau_equipe">
 				<td>{ elem.position }</td>
-				<td><img src="{ elem.team.crestUrl }">{ elem.team.name }</td>
+				<td><img src="{ elem.team.crestUrl }"/>{ elem.team.name }</td>
 				<td>{ elem.points }</td>
 				<td>{ elem.playedGames }</td>
 				<td>{ elem.goalsFor }</td>
