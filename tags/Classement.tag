@@ -12,7 +12,7 @@
 		</tr>
 		<tr each="{ team }" class="tableau_equipe">
 			<td>{ position }</td>
-			<td><img src="{ team.crestUrl }" >{ team.name }</td>
+			<td><img src="{ team.crestUrl }">{ team.name }</td>
 			<td>{ points }</td>
 			<td>{ playedGames }</td>
 			<td>{ goalsFor }</td>

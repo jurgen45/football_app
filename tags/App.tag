@@ -1,13 +1,12 @@
 <app>
-	<!-- Spinner -->
-	<spinner loading="{ loading }"></spinner>
-	<h1 class="titre">Championnat</h1>
 	
+	<h1 class="titre">Championnat</h1>
+	<spinner loading="{ loading }"></spinner>
 	<div class="bouton_categorie"> 
-		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name="{ name }">{ name }</button>
+		<button each="{ categorie }" class="bouton_visu" onclick="{ setData }" id="{ id }" name="{ name }" >{ name }</button>
 	</div>
 	<div class="liste_choix">
-		<h2>{nomChampionnat}</h2>
+		<h2>{nomChampionnat+" "+nomArea}</h2>
 		<ul>
 			<li class="liste" onclick="{ affichageSwitch }" id="classement">Classement</li>
 			<li class="liste" onclick="{ affichageSwitch }" id="resultat">Résultat</li>
@@ -25,6 +24,7 @@
 		this.id=0;
 		this.name="";
 		this.nomChampionnat="";
+		this.nomArea="";
 		this.classementTag=false;
 		this.resultatTag=false;
 		this.buteursTag=false;
@@ -32,12 +32,11 @@
 
 		this.getCompet = function(){
 			this.loading=true;
-			var that=this;
 			this.getChampionnats()
 				.then(function(data){
-					that.categorie=data.competitions;
-					that.loading=false;
-					that.update();
+					t.categorie=data.competitions;
+					t.loading=false;
+					t.update();
 				});
 		}
 		this.getCompet();
