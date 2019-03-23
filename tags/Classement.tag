@@ -15,7 +15,7 @@
 			</tr>
 			<tr each = "{ elem in s.table }" class="tableau_equipe">
 				<td>{ elem.position }</td>
-				<td><img src="{ elem.team.crestUrl }"/>{ elem.team.name }</td>
+				<td ><a href="./equipe.html?id={elem.team.id}"><img src="{ elem.team.crestUrl }"/>{ elem.team.name }</a></td>
 				<td>{ elem.points }</td>
 				<td>{ elem.playedGames }</td>
 				<td>{ elem.goalsFor }</td>
@@ -37,7 +37,7 @@
 			this.getClassement(t.id)
 				.then(function(data){
 					t.standingsTab=data.standings;
-					console.log(t.standings);
+					console.log(t.standingsTab);
 					t.current=data.season;
 					t.loading=false;
 					t.update();

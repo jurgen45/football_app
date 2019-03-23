@@ -1,0 +1,42 @@
+</DOCTYPE html>
+<html>
+	<head>
+		<title>Equipe</title>
+		<meta charset="UTF-8" />
+		<script src="https://cdn.jsdelivr.net/gh/riot/riot/riot%2Bcompiler.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/riot/route/dist/route.min.js"></script>
+		<script src="include/serviceAjax.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="include/riot+compiler.min.js"></script>
+		<script src="tags/Equipe.tag" type="riot/tag"></script>
+		<script src="tags/Spinner.tag" type="riot/tag"></script>
+
+	</head>
+	<body>
+		<Equipe id="{ id }"></Equipe>
+		<script>
+		    riot.mixin("serviceAjax", makeServiceAjax());
+		    riot.mount("*");
+		</script>
+	</body>
+
+	<script>
+		this.id=0;
+		var t=this
+		function getId(param) {
+			var vars = {};
+			window.location.href.replace( location.hash, '' ).replace( 
+				/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+				function( m, key, value ) { // callback
+					vars[key] = value !== undefined ? value : '';
+				}
+			);
+			if ( param ) {
+				return vars[param] ? vars[param] : null;	
+			}
+			this.id=vars.id;
+		}
+		getId();
+	</script>
+</html>
