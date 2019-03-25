@@ -5,7 +5,7 @@
 	<form>
 	    <label for="choix_equip" class="choice_equipe">Home:</label>
 	    <select name="choix_equip" size="1" class="choice_equipe">
-		    <option each="{n1 in equipe}" onClick="{ setEquipe }" id="{n1}" name="{ n1 }">{n1}</option>
+		    <option each="{n1 in equipe}" onClick="{ setEquipe }" id="{ n1 }" name="{ n1 }">{n1}</option>
 	    </select>
     </form>
     <form>
