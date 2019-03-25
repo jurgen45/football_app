@@ -16,19 +16,19 @@
 		<h4>{"journée "+currentMatchday}</h4>
 		<table each="{ res in mtc }" if="{ res.matchday == currentMatchday && !display }" class="tableauRes">
 			<tr>
-				<td>{res.group}</td>
-				<td>{res.homeTeam.name}</td>
+				<td>{res.group+" "+(new Date(res.utcDate)).getHours()+":"+(new Date(res.utcDate)).getMinutes()+":"+(new Date(res.utcDate)).getSeconds()}</td>
+				<td><a href="./equipe.html?id={res.homeTeam.id}">{res.homeTeam.name}</a></td>
 				<td>{res.score.fullTime.homeTeam+" - "+res.score.fullTime.awayTeam}</td>
-				<td>{res.awayTeam.name}</td>
+				<td><a href="./equipe.html?id={res.awayTeam.id}">{res.awayTeam.name}</a></td>
 			</tr>
 		</table>
 
 		<table each="{ res in mtc }" if="{ res.matchday == currentMatchday && res.awayTeam.name == currentEquip && display || res.matchday == currentMatchday && res.homeTeam.name == currentEquip && display || res.awayTeam.name == currentEquip && display}" class="tableauRes">
 			<tr>
-				<td>{res.group}</td>
-				<td>{res.homeTeam.name}</td>
+				<td>{res.group+" "+(new Date(res.utcDate)).getHours()+":"+(new Date(res.utcDate)).getMinutes()+":"+(new Date(res.utcDate)).getSeconds()}</td>
+				<td><a href="./equipe.html?id={res.homeTeam.id}">{res.homeTeam.name}</a></td>
 				<td>{res.score.fullTime.homeTeam+" - "+res.score.fullTime.awayTeam}</td>
-				<td>{res.awayTeam.name}</td>
+				<td><a href="./equipe.html?id={res.awayTeam.id}">{res.awayTeam.name}</a></td>
 			</tr>
 		</table>
 	</div>

@@ -9,7 +9,7 @@
 		<tr each="{b in buteurTab}">
 			<td>{b.numberOfGoals}</td>
 			<td>{b.player.name}</td>
-			<td>{b.team.name}</td>
+			<td><a href="./equipe.html?id={b.team.id}">{b.team.name}</a></td>
 		</tr>
 	</table>
 	<script>
