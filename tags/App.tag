@@ -43,12 +43,18 @@
 
 		this.setData = function(evenement){
 			evenement.preventDefault();
+			var c=document.getElementById("classement");
+			var r=document.getElementById("resultat");
+			var b=document.getElementById("buteur");
 			t.id = evenement.target.id;
 			t.nomChampionnat = evenement.target.name;
 			t.nomArea = evenement.target.zone;
 			t.classementTag=false;
 			t.resultatTag=false;
 			t.buteursTag=false;
+			c.setAttribute("class", "liste");
+			r.setAttribute("class", "liste");
+			b.setAttribute("class", "liste");
 			t.update();
 		}
 

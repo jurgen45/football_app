@@ -37,7 +37,6 @@
 			this.getClassement(t.id)
 				.then(function(data){
 					t.standingsTab=data.standings;
-					console.log(t.standingsTab);
 					t.current=data.season;
 					t.loading=false;
 					t.update();

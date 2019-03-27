@@ -13,9 +13,11 @@
 				    <option each="{n1 in positionTab}" onclick="{ setPosition }" id="{n1}" name="{ n1 }">{n1}</option>
 			    </select>
 		    </form>
-		    <p>Age:</p>
-		    <BUTTON onclick="{trie}" id="croissant"> > </BUTTON>
-		    <BUTTON onclick="{trie}" id="decroissant" > < </BUTTON>
+		    <div class="age">
+		    	<p>Age:</p>
+			    <BUTTON onclick="{trie}" id="decroissant" > < </BUTTON>
+			    <BUTTON onclick="{trie}" id="croissant"> > </BUTTON>
+		    </div>
 	    </div>
 	    <div class="struct">
 	    	<div each="{ el in squadTab }" if="{ el.position == filtrePosition }" class="joueur_info">
