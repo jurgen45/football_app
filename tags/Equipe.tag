@@ -22,7 +22,7 @@
 	    <div class="struct">
 	    	<div each="{ el in squadTab }" if="{ el.position == filtrePosition }" class="joueur_info">
 				<h5>{ el.name }</h5>
-				<p><em>Naissance : </em>{(new Date(el.dateOfBirth)).getDay()+"/"+(new Date(el.dateOfBirth)).getMonth()+"/"+(new Date(el.dateOfBirth)).getYear()}</p>
+				<p><em>Naissance : </em>{(new Date(el.dateOfBirth)).getDate()+"/"+((new Date(el.dateOfBirth)).getMonth()+1)+"/"+(new Date(el.dateOfBirth)).getFullYear()}</p>
 				<p><em>Nationalité: </em>{el.nationality}</p>
 				<p><em>Numero: </em>{el.shirtNumber}</p>
 			</div>
@@ -43,6 +43,7 @@
 			this.getEquipe(t.id)
 				.then(function(data){
 					t.equipeTab=data;
+					console.log(t.equipeTab);
 					t.squadTab=data.squad;
 					t.squadTab.sort(t.sortByAgeCroissant);
 					for (var i = 0; i < data.squad.length; i++) {
